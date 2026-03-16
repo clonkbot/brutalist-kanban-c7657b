@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-black: #0a0a0a;
+  --color-white: #fafafa;
+  --color-concrete: #e4e4e7;
+  --color-accent: #f59e0b;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  background-color: var(--color-concrete);
+  color: var(--color-black);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bebas Neue', system-ui, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom border width */
+.border-3 {
+  border-width: 3px;
+}
+
+/* Scrollbar styling for brutalist aesthetic */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-concrete);
+  border: 2px solid var(--color-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-black);
+  border: 2px solid var(--color-concrete);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+/* Drag ghost styling */
+.dragging {
+  opacity: 0.5;
+  transform: rotate(3deg);
+}
+
+/* Animation for cards appearing */
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Harsh selection */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-black);
+}
+
+/* Focus styles */
+input:focus,
+button:focus {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Make drag and drop work better on touch */
+@media (pointer: coarse) {
+  .cursor-grab {
+    cursor: default;
+  }
+
+  .active\:cursor-grabbing:active {
+    cursor: default;
+  }
+}
